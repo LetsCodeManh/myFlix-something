@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/LetsCodeManh/myFlix-something/issues"
   },
-  "homepage": "https://github.com/LetsCodeManh/myFlix-something#readme"
+  "homepage": "https://github.com/LetsCodeManh/myFlix-something#readme",
+  "devDependencies": {
+    "parcel": "^2.8.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
 }
