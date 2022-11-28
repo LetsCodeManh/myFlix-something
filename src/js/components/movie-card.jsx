@@ -2,11 +2,19 @@ import React from "react";
 
 class MovieCard extends React.Component {
   render() {
-    const { movie } = this.props;
+    const { movie, onMovieClick } = this.props;
 
-    return <div className="movie-card">{movie.Title}</div>
+    return (
+      <div
+        className="movie-card"
+        onClick={() => {
+          onMovieClick(movie);
+        }}
+      >
+        {movie.Title}
+      </div>
+    );
   }
 }
-
 
 export default MovieCard;
