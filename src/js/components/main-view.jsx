@@ -1,4 +1,5 @@
 import React from "react";
+import MovieCard from "./movie-card";
 
 class MainView extends React.Component {
   constructor() {
@@ -24,20 +25,25 @@ class MainView extends React.Component {
           ImagePath: "...",
         },
       ],
+      selectedMovie: null,
     };
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, selectedMovie } = this.state;
+
+    if (selectedMovie) return <MovieView movie={selectedMovie} />;
+
+    if (movies.length === 0) return <div className="main-view">The list is empty!</div>
 
     if (movies.length === 0) {
       return <div className="main-view">The list is empty!</div>;
     } else {
       return (
         <div className="main-view">
-          {movies.map((movie) => {
-            return <div key={movie._id}>{movie.Title}</div>;
-          })}
+          {movies.map((movie) => (
+            <MovieCard key={movie._id} movie={movie} />
+          ))}
         </div>
       );
     }

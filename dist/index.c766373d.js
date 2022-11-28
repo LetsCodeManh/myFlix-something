@@ -27269,6 +27269,8 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _movieCard = require("./movie-card");
+var _movieCardDefault = parcelHelpers.interopDefault(_movieCard);
 class MainView extends (0, _reactDefault.default).Component {
     constructor(){
         super();
@@ -27292,33 +27294,47 @@ class MainView extends (0, _reactDefault.default).Component {
                     Description: "desc3...",
                     ImagePath: "..."
                 }
-            ]
+            ],
+            selectedMovie: null
         };
     }
     render() {
-        const { movies  } = this.state;
+        const { movies , selectedMovie  } = this.state;
+        if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(MovieView, {
+            movie: selectedMovie
+        }, void 0, false, {
+            fileName: "src/js/components/main-view.jsx",
+            lineNumber: 35,
+            columnNumber: 31
+        }, this);
         if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "main-view",
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/js/components/main-view.jsx",
-            lineNumber: 34,
+            lineNumber: 37,
+            columnNumber: 37
+        }, this);
+        if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "main-view",
+            children: "The list is empty!"
+        }, void 0, false, {
+            fileName: "src/js/components/main-view.jsx",
+            lineNumber: 40,
             columnNumber: 14
         }, this);
         else return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "main-view",
-            children: movies.map((movie)=>{
-                return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    children: movie.Title
+            children: movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardDefault.default), {
+                    movie: movie
                 }, movie._id, false, {
                     fileName: "src/js/components/main-view.jsx",
-                    lineNumber: 39,
-                    columnNumber: 20
-                }, this);
-            })
+                    lineNumber: 45,
+                    columnNumber: 13
+                }, this))
         }, void 0, false, {
             fileName: "src/js/components/main-view.jsx",
-            lineNumber: 37,
+            lineNumber: 43,
             columnNumber: 9
         }, this);
     }
@@ -27326,6 +27342,38 @@ class MainView extends (0, _reactDefault.default).Component {
 exports.default = MainView;
 
   $parcel$ReactRefreshHelpers$6286.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./movie-card":"g1FJv"}],"g1FJv":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$b080 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$b080.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+class MovieCard extends (0, _reactDefault.default).Component {
+    render() {
+        const { movie  } = this.props;
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "movie-card",
+            children: movie.Title
+        }, void 0, false, {
+            fileName: "src/js/components/movie-card.jsx",
+            lineNumber: 7,
+            columnNumber: 12
+        }, this);
+    }
+}
+exports.default = MovieCard;
+
+  $parcel$ReactRefreshHelpers$b080.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
