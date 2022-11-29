@@ -27278,7 +27278,12 @@ class MainView extends (0, _reactDefault.default).Component {
     constructor(){
         super();
         this.state = {
-            movies: [],
+            movies: [
+                {
+                    _id: 1,
+                    Title: "Movie"
+                }
+            ],
             selectedMovie: null
         };
     }
@@ -27298,19 +27303,12 @@ class MainView extends (0, _reactDefault.default).Component {
     }
     render() {
         const { movies , selectedMovie  } = this.state;
-        if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-            movie: selectedMovie
-        }, void 0, false, {
-            fileName: "src/js/components/main-view.jsx",
-            lineNumber: 37,
-            columnNumber: 31
-        }, this);
         if (movies.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
             className: "main-view",
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/js/components/main-view.jsx",
-            lineNumber: 40,
+            lineNumber: 43,
             columnNumber: 14
         }, this);
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27322,7 +27320,7 @@ class MainView extends (0, _reactDefault.default).Component {
                 }
             }, void 0, false, {
                 fileName: "src/js/components/main-view.jsx",
-                lineNumber: 46,
+                lineNumber: 49,
                 columnNumber: 11
             }, this) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
                     movie: movie,
@@ -27331,12 +27329,12 @@ class MainView extends (0, _reactDefault.default).Component {
                     }
                 }, movie._id, false, {
                     fileName: "src/js/components/main-view.jsx",
-                    lineNumber: 54,
+                    lineNumber: 57,
                     columnNumber: 13
                 }, this))
         }, void 0, false, {
             fileName: "src/js/components/main-view.jsx",
-            lineNumber: 44,
+            lineNumber: 47,
             columnNumber: 7
         }, this);
     }
@@ -27397,6 +27395,15 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _mainView = require("./main-view");
 class MovieView extends (0, _reactDefault.default).Component {
+    keypressCallback(event) {
+        console.log(event.key);
+    }
+    componentDidMount() {
+        document.addEventListener("keypress", this.keypressCallback);
+    }
+    componentWillUnmount() {
+        document.removeEventListener("keypress", this.keypressCallback);
+    }
     render() {
         const { movie , onBackClick  } = this.props;
         return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27408,12 +27415,12 @@ class MovieView extends (0, _reactDefault.default).Component {
                         src: movie.ImagePath
                     }, void 0, false, {
                         fileName: "src/js/components/movie-view.jsx",
-                        lineNumber: 11,
+                        lineNumber: 23,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/js/components/movie-view.jsx",
-                    lineNumber: 10,
+                    lineNumber: 22,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27424,7 +27431,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: "Title: "
                         }, void 0, false, {
                             fileName: "src/js/components/movie-view.jsx",
-                            lineNumber: 14,
+                            lineNumber: 26,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27432,13 +27439,13 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: movie.Title
                         }, void 0, false, {
                             fileName: "src/js/components/movie-view.jsx",
-                            lineNumber: 15,
+                            lineNumber: 27,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/js/components/movie-view.jsx",
-                    lineNumber: 13,
+                    lineNumber: 25,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -27449,7 +27456,7 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: "Description: "
                         }, void 0, false, {
                             fileName: "src/js/components/movie-view.jsx",
-                            lineNumber: 18,
+                            lineNumber: 30,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
@@ -27457,29 +27464,29 @@ class MovieView extends (0, _reactDefault.default).Component {
                             children: movie.Description
                         }, void 0, false, {
                             fileName: "src/js/components/movie-view.jsx",
-                            lineNumber: 19,
+                            lineNumber: 31,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/js/components/movie-view.jsx",
-                    lineNumber: 17,
+                    lineNumber: 29,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                     onClick: ()=>{
-                        onBackClick(newSelectedMovie);
+                        onBackClick(null);
                     },
                     children: "Back"
                 }, void 0, false, {
                     fileName: "src/js/components/movie-view.jsx",
-                    lineNumber: 21,
+                    lineNumber: 33,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/js/components/movie-view.jsx",
-            lineNumber: 9,
+            lineNumber: 21,
             columnNumber: 7
         }, this);
     }
