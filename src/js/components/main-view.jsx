@@ -4,6 +4,7 @@ import { MovieCard } from "./movie-card";
 import { MovieView } from "./movie-view";
 
 import { LoginView } from "./login-view";
+import { RegisterView } from "./registration-view";
 
 export class MainView extends React.Component {
   constructor() {
