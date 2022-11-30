@@ -2909,13 +2909,20 @@ var _mainView = require("./components/main-view");
 var _movieView = require("./components/movie-view");
 // Import statement to indicate that you need to bundle
 var _mainScss = require("../scss/main.scss");
+var _reactBootstrap = require("react-bootstrap");
 // Main component (will eventually use all the others)
 class MyFlixApplication extends (0, _reactDefault.default).Component {
     render() {
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _mainView.MainView), {}, void 0, false, {
+                fileName: "src/js/index.jsx",
+                lineNumber: 16,
+                columnNumber: 9
+            }, this)
+        }, void 0, false, {
             fileName: "src/js/index.jsx",
-            lineNumber: 13,
-            columnNumber: 12
+            lineNumber: 15,
+            columnNumber: 7
         }, this);
     }
 }
@@ -2929,7 +2936,7 @@ const container = document.getElementsByClassName("app-container")[0];
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","../scss/main.scss":"4Pg3x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/main-view":"U0SYh","./components/movie-view":"bPmkA"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom":"j6uA9","../scss/main.scss":"4Pg3x","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/main-view":"U0SYh","./components/movie-view":"bPmkA","react-bootstrap":"3AD9A"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("./cjs/react-jsx-dev-runtime.development.js");
 
@@ -27276,6 +27283,7 @@ var _movieCard = require("./movie-card");
 var _movieView = require("./movie-view");
 var _loginView = require("./login-view");
 var _registrationView = require("./registration-view");
+var _reactBootstrap = require("react-bootstrap");
 class MainView extends (0, _reactDefault.default).Component {
     constructor(){
         super();
@@ -27346,7 +27354,7 @@ class MainView extends (0, _reactDefault.default).Component {
             onLoggedIn: (user)=>this.onLoggedIn(user)
         }, void 0, false, {
             fileName: "src/js/components/main-view.jsx",
-            lineNumber: 87,
+            lineNumber: 88,
             columnNumber: 14
         }, this);
         // Before the movies have been loaded
@@ -27355,33 +27363,57 @@ class MainView extends (0, _reactDefault.default).Component {
             children: "The list is empty!"
         }, void 0, false, {
             fileName: "src/js/components/main-view.jsx",
-            lineNumber: 91,
+            lineNumber: 92,
             columnNumber: 14
         }, this);
-        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "main-view",
-            children: selectedMovie ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
-                movie: selectedMovie,
-                onBackClick: (newSelectedMovie)=>{
-                    this.setSelectedMovie(newSelectedMovie);
-                }
-            }, void 0, false, {
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Router, {
+            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Row, {
+                className: "main-view justify-content-center",
+                children: [
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Router, {
+                        exact: true,
+                        path: "/",
+                        render: ()=>{
+                            return movies.map((movie)=>{
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                    md: 3,
+                                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
+                                        movie: movie
+                                    }, void 0, false, void 0, void 0)
+                                }, m._id, false, void 0, void 0);
+                            });
+                        }
+                    }, void 0, false, {
+                        fileName: "src/js/components/main-view.jsx",
+                        lineNumber: 98,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Router, {
+                        path: "/movies/:movieId",
+                        render: ({ match  })=>{
+                            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
+                                md: 8,
+                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieView.MovieView), {
+                                    movie: movies.find((match)=>{
+                                        match._id, match.params.movieId;
+                                    })
+                                }, void 0, false, void 0, void 0)
+                            }, void 0, false, void 0, void 0);
+                        }
+                    }, void 0, false, {
+                        fileName: "src/js/components/main-view.jsx",
+                        lineNumber: 109,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "src/js/components/main-view.jsx",
-                lineNumber: 100,
-                columnNumber: 11
-            }, this) : movies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCard.MovieCard), {
-                    movie: movie,
-                    onMovieClick: (movie)=>{
-                        this.setSelectedMovie(movie);
-                    }
-                }, movie._id, false, {
-                    fileName: "src/js/components/main-view.jsx",
-                    lineNumber: 108,
-                    columnNumber: 13
-                }, this))
+                lineNumber: 97,
+                columnNumber: 9
+            }, this)
         }, void 0, false, {
             fileName: "src/js/components/main-view.jsx",
-            lineNumber: 95,
+            lineNumber: 96,
             columnNumber: 7
         }, this);
     }
@@ -27392,7 +27424,7 @@ class MainView extends (0, _reactDefault.default).Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./movie-card":"g1FJv","./movie-view":"bPmkA","axios":"jo6P5","./login-view":"FxHSw","./registration-view":"favbc"}],"g1FJv":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./movie-card":"g1FJv","./movie-view":"bPmkA","axios":"jo6P5","./login-view":"FxHSw","./registration-view":"favbc","react-bootstrap":"3AD9A"}],"g1FJv":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b080 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

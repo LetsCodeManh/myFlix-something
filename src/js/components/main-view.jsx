@@ -5,6 +5,7 @@ import { MovieView } from "./movie-view";
 
 import { LoginView } from "./login-view";
 import { RegisterView } from "./registration-view";
+import { Col } from "react-bootstrap";
 
 export class MainView extends React.Component {
   constructor() {
@@ -92,29 +93,35 @@ export class MainView extends React.Component {
     }
 
     return (
-      <div className="main-view">
-        {
-          // If the state of "selectedMovie" is not null, that selected movie will be returned otherwise, all movie will be returned
-        }
-        {selectedMovie ? (
-          <MovieView
-            movie={selectedMovie}
-            onBackClick={(newSelectedMovie) => {
-              this.setSelectedMovie(newSelectedMovie);
+      <Router>
+        <Row className="main-view justify-content-center">
+          <Router
+            exact
+            path="/"
+            render={() => {
+              return movies.map((movie) => {
+                <Col md={3} key={m._id}>
+                  <MovieCard movie={movie} />
+                </Col>;
+              });
             }}
           />
-        ) : (
-          movies.map((movie) => (
-            <MovieCard
-              key={movie._id}
-              movie={movie}
-              onMovieClick={(movie) => {
-                this.setSelectedMovie(movie);
-              }}
-            />
-          ))
-        )}
-      </div>
+          <Router
+            path="/movies/:movieId"
+            render={({ match }) => {
+              return (
+                <Col md={8}>
+                  <MovieView
+                    movie={movies.find((match) => {
+                      match._id === match.params.movieId;
+                    })}
+                  />
+                </Col>
+              );
+            }}
+          />
+        </Row>
+      </Router>
     );
   }
 }
