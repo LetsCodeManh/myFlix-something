@@ -1,5 +1,5 @@
 import React from "react";
-import { MainView } from "./main-view";
+import { Card, Container } from "react-bootstrap";
 
 export class MovieView extends React.Component {
   keypressCallback(event) {
@@ -18,26 +18,21 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} />
-        </div>
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <button
-          onClick={() => {
-            onBackClick(null);
-          }}
-        >
-          Back
-        </button>
-      </div>
+      <Card>
+        <Card.Img variant="top" src="{movie.ImagePath}" />
+        <Card.Body>
+          <Card.Title>{movie.Title}</Card.Title>
+          <Card.Text>{movie.Description}</Card.Text>
+          <Button
+            onClick={() => {
+              onBackClick(null);
+            }}
+            variant="link"
+          >
+            Back
+          </Button>
+        </Card.Body>
+      </Card>
     );
   }
 }

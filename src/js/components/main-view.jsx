@@ -13,7 +13,13 @@ export class MainView extends React.Component {
       movies: [
         {
           _id: 1,
-          Title: "Movie",
+          Title: "The Shawshank Redemption",
+          Description:
+            "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+          Genre: "Drama",
+          Director: "Frank Darabont",
+          ImagePath:
+            "https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",
         },
       ],
       selectedMovie: null,
