@@ -5,7 +5,7 @@ import { MovieView } from "./movie-view";
 
 import { LoginView } from "./login-view";
 import { RegisterView } from "./registration-view";
-import { Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 export class MainView extends React.Component {
   constructor() {
@@ -106,6 +106,7 @@ export class MainView extends React.Component {
               });
             }}
           />
+          {/* Movie View */}
           <Router
             path="/movies/:movieId"
             render={({ match }) => {
@@ -115,6 +116,40 @@ export class MainView extends React.Component {
                     movie={movies.find((match) => {
                       match._id === match.params.movieId;
                     })}
+                  />
+                </Col>
+              );
+            }}
+          />
+
+          {/* Genre View */}
+          <Router
+            path="/genres/:genreId"
+            render={({ match }) => {
+              return (
+                <Col md={8}>
+                  <MovieView
+                    movie={movies.find((match) => {
+                      match._id === match.params.genreId;
+                    })}
+                  />
+                </Col>
+              );
+            }}
+          />
+
+          {/* Director View */}
+          <Router
+            path="/directors/:directorId"
+            render={({ match }) => {
+              if (movies.length === 0) return <div className="main-view" />;
+              return (
+                <Col md={8}>
+                  <DirectorView
+                    director={
+                      movies.find((m) => m.Director.Name === match.params.name)
+                        .Director
+                    }
                   />
                 </Col>
               );
