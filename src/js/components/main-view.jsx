@@ -48,10 +48,29 @@ export class MainView extends React.Component {
   }
 
   // When a user successfully logs in, this function on updates the "user" property in state to that particular user
-  onLoggedIn(user) {
+  onLoggedIn(authData) {
+    console.log(authData);
     this.setState({
-      user,
+      user: authData.user.Username,
     });
+
+    localStorage.setItem("token", authData.token);
+    localStorage.setItem("user", authData.user.Username);
+    this.getMovies(authData.token);
+  }
+
+  getMovies(token) {
+    axios
+      .get("https://sleepy-brook-50846.herokuapp.com/movies", {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        this.setState({
+          movies: response.data,
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
   }
 
   render() {

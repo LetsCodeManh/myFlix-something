@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Card, Form, Container, Button, Row, Col } from "react-bootstrap";
 
 export function LoginView(props) {
@@ -9,8 +10,18 @@ export function LoginView(props) {
     e.preventDefault();
     console.log(username, password);
     // Send a request to the server for authentication
-    this.props.onLoggedIn(username);
-    // this.props.onLoggedIn(password);
+    axios
+      .post("https://sleepy-brook-50846.herokuapp.com/login", {
+        Username: username,
+        Password: password,
+      })
+      .then((response) => {
+        const data = response.data;
+        props.onLoggedIn(data);
+      })
+      .catch((e) => {
+        console.log("This User Do Not Exist");
+      });
   };
 
   return (
