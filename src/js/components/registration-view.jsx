@@ -21,7 +21,7 @@ export function RegisterView(props) {
             <Card.Body>
               <Card.Title>Register</Card.Title>
               <Form>
-                <Form.Group className="mb-3" controlId="fromUsername">
+                <Form.Group className="mb-3" controlId="formUsername">
                   <Form.Label>Username</Form.Label>
                   <Form.Control
                     type="text"
@@ -30,7 +30,7 @@ export function RegisterView(props) {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="fromPassword">
+                <Form.Group className="mb-3" controlId="formPassword">
                   <Form.Label>Password</Form.Label>
                   <Form.Control
                     type="password"
@@ -40,7 +40,7 @@ export function RegisterView(props) {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="fromEmail">
+                <Form.Group className="mb-3" controlId="formEmail">
                   <Form.Label>Email</Form.Label>
                   <Form.Control
                     type="email"
@@ -48,7 +48,7 @@ export function RegisterView(props) {
                   />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="fromBirthday">
+                <Form.Group className="mb-3" controlId="formBirthday">
                   <Form.Label>Birthday</Form.Label>
                   <Form.Control
                     type="date"
