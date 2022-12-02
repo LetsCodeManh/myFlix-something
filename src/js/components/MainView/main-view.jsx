@@ -3,11 +3,11 @@ import axios from "axios";
 
 import { Navbar } from "./Navbar";
 
-import { MovieCard } from "../movie-card";
-import { MovieView } from "../movie-view";
+import { MovieCard } from "../SubView/movie-card";
+import { MovieView } from "../SubView/movie-view";
 
-import { LoginView } from "../login-view";
-import { RegisterView } from "../registration-view";
+import { LoginView } from "../User/login-view";
+import { RegisterView } from "../User/registration-view";
 import { Col, Row } from "react-bootstrap";
 
 export class MainView extends React.Component {
