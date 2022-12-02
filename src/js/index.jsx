@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { MainView } from "./components/main-view";
-import { MovieView } from "./components/movie-view";
+import { MainView } from "./components/MainView/main-view";
 
 // Import statement to indicate that you need to bundle
 import "../scss/main.scss";

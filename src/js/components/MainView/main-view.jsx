@@ -1,10 +1,13 @@
 import React from "react";
 import axios from "axios";
-import { MovieCard } from "./movie-card";
-import { MovieView } from "./movie-view";
 
-import { LoginView } from "./login-view";
-import { RegisterView } from "./registration-view";
+import { Navbar } from "./Navbar";
+
+import { MovieCard } from "../movie-card";
+import { MovieView } from "../movie-view";
+
+import { LoginView } from "../login-view";
+import { RegisterView } from "../registration-view";
 import { Col, Row } from "react-bootstrap";
 
 export class MainView extends React.Component {
@@ -81,19 +84,25 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, selectedMovie, user } = this.state;
+    const { movies, user } = this.state;
 
     // If there is no user, the LoginView is rendered. If there is a user logged in, the user details are passed as a prop to the LoginView
     if (!user)
-      return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+      return (
+        <>
+          <Navbar user={user} />
+          <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+        </>
+      );
 
-    // Before the movies have been loaded
-    if (movies.length === 0) {
-      return <div className="main-view">The list is empty!</div>;
-    }
+    // // Before the movies have been loaded
+    // if (movies.length === 0) {
+    //   return <div className="main-view">The list is empty!</div>;
+    // }
 
     return (
       <Router>
+        <Navbar user={user} />
         <Row className="main-view justify-content-center">
           <Router
             exact
