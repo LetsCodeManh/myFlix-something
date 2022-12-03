@@ -90,14 +90,11 @@ export class MainView extends React.Component {
                 if (!user)
                   return (
                     <Col>
-                      <LoginView
-                        movies={movies}
-                        onLoggedIn={(user) => this.onLoggedIn(user)}
-                      />
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                     </Col>
                   );
                 if (movies.length === 0) return <div className="main-view" />;
-                return <MovieList movies={movies} />;
+                return <MovieView movies={movies} />;
               }}
             />
             {/* Registered */}
@@ -115,15 +112,14 @@ export class MainView extends React.Component {
 
             {/* ProfilView */}
             <Route
-              exact
               path={`/user/${user}`}
               render={({ match, history }) => {
                 if (!user) return <Redirect to="/" />;
                 return (
                   <Col>
                     <UserView
-                      movies={movies}
                       user={user}
+                      movies={movies}
                       onBackClick={() => history.geBack()}
                     />
                   </Col>
@@ -136,7 +132,12 @@ export class MainView extends React.Component {
               exact
               path={`/movies/:id`}
               render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  );
                 return (
                   <Col>
                     <MovieView
@@ -155,7 +156,12 @@ export class MainView extends React.Component {
               exact
               path={`/genres/:name`}
               render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  );
                 if (movies.length === 0) return <div className="main-view" />;
                 return (
                   <Col>
@@ -175,7 +181,12 @@ export class MainView extends React.Component {
               exact
               path={`/directors/:name`}
               render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  );
                 if (movies.length === 0) return <div className="main-view" />;
                 return (
                   <Col>
