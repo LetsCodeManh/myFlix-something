@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Nav } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 
 export function Navbar({ user }) {
   const onLoggedOut = () => {

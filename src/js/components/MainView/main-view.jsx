@@ -13,7 +13,7 @@ import { UserView } from "../User/user-view";
 
 import { Col, Container, Row } from "react-bootstrap";
 
-import { Route, Redirect as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 
 export class MainView extends React.Component {
   constructor() {
@@ -101,7 +101,7 @@ export class MainView extends React.Component {
             <Route
               path="/register"
               render={() => {
-                if (user) return <Redirect to="/" />;
+                if (user) return <BrowserRouter to="/" />;
                 return (
                   <Col>
                     <RegisterView />
@@ -114,7 +114,7 @@ export class MainView extends React.Component {
             <Route
               path={`/user/${user}`}
               render={({ match, history }) => {
-                if (!user) return <Redirect to="/" />;
+                if (!user) return <BrowserRouter to="/" />;
                 return (
                   <Col>
                     <UserView
