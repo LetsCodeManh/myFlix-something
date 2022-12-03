@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { MainView } from "./components/MainView/main-view";
 
 // Import statement to indicate that you need to bundle
-import "../scss/main.scss";
 import { Container } from "react-bootstrap";
 
 // Main component (will eventually use all the others)

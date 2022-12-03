@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Nav } from "react-bootstrap";
+import { Button, Container, Nav } from "react-bootstrap";
 
 export function Navbar({ user }) {
   const onLoggedOut = () => {
@@ -25,9 +25,10 @@ export function Navbar({ user }) {
         <Navbar.Brand href="#home">myFlix</Navbar.Brand>
         <Navbar.Toggle id="responsive-navbar-nav" />
         <Nav className="me-auto">
-          <Navbar.Link href="#something">Features</Navbar.Link>
-          <Navbar.Link href="#something">Features</Navbar.Link>
-          <Navbar.Link href="#something">Features</Navbar.Link>
+          {isAuth() && <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>}
+          {isAuth() && <Button onClick={onLoggedOut}>Logout</Button>}
+          {!isAuth() && <Nav.Link href={`/`}>Sign-in</Nav.Link>}
+          {!isAuth() && <Nav.Link href={`/register`}>Sign-up</Nav.Link>}
         </Nav>
       </Container>
     </Navbar>
