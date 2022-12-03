@@ -4,15 +4,23 @@ import { MainView } from "./components/MainView/main-view";
 
 // Import statement to indicate that you need to bundle
 import { Container } from "react-bootstrap";
+import { createStore } from "react-redux"
+import { Provider } from "react-redux";
+import moviesApp from "./Redux/reducers"
 
-// Main component (will eventually use all the others)
+import { devToolsEnhancer} from "redux-devtools-extension"
+
+
+const store = createStore(moviesApp, devToolsEnhancer())
 
 class MyFlixApplication extends React.Component {
   render() {
     return (
-      <Container>
-        <MainView />
-      </Container>
+      <Provider store={store}>
+        <Container>
+          <MainView />
+        </Container>
+      </Provider>
     );
   }
 }
