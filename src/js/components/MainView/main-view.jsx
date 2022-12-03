@@ -4,7 +4,7 @@ import axios from "axios";
 import { Navbar } from "./Navbar";
 
 import { MovieView } from "../SubView/movie-view";
-import { DirectorView} from "../SubView/director-view";
+import { DirectorView } from "../SubView/director-view";
 import { GenreView } from "../SubView/genre-view";
 
 import { LoginView } from "../User/login-view";

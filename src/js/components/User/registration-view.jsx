@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { Card, Form, Container, Button, Row, Col } from "react-bootstrap";
 
 export function RegisterView(props) {
@@ -12,20 +13,21 @@ export function RegisterView(props) {
     console.log(username, password, email, birthday);
   };
 
-  axios.post('YOUR_API_URL/users', {
-    Username: username,
-    Password: password,
-    Email: email,
-    Birthday: birthday
-  })
-  .then(response => {
-    const data = response.data;
-    console.log(data);
-    window.open('/', '_self'); // the second argument '_self' is necessary so that the page will open in the current tab
-  })
-  .catch(e => {
-    console.log('error registering the user')
-  });
+  axios
+    .post("https://sleepy-brook-50846.herokuapp.com/users", {
+      Username: username,
+      Password: password,
+      Email: email,
+      Birthday: birthday,
+    })
+    .then((response) => {
+      const data = response.data;
+      console.log(data);
+      window.open("/", "_self"); // the second argument '_self' is necessary so that the page will open in the current tab
+    })
+    .catch((e) => {
+      console.log("error registering the user");
+    });
 
   return (
     <Container className="p-5">
@@ -83,3 +85,12 @@ export function RegisterView(props) {
     </Container>
   );
 }
+
+RegisterView.propTypes = {
+  register: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string,
+  }),
+};
