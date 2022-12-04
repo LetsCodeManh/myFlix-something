@@ -13,16 +13,18 @@ import PropTypes from "prop-types";
 import { Card, Form, Container, Button, Row, Col } from "react-bootstrap";
 
 export function LoginView(props) {
+  // Getting Data
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // Declare hook for each input
+  // Throw Error if something is wrong
   const [usernameErr, setUsernameErr] = useState("");
   const [passwordErr, setPasswordErr] = useState("");
 
-  // validate user inputs
+  // Validating Data
   const validate = () => {
     let isReq = true;
+
     if (!username) {
       setUsernameErr("Username Required");
       isReq = false;
@@ -42,6 +44,7 @@ export function LoginView(props) {
     return isReq;
   };
 
+  // Submit Data
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
@@ -58,7 +61,7 @@ export function LoginView(props) {
           props.onLoggedIn(data);
         })
         .catch((e) => {
-          console.log("This User Do Not Exist");
+          console.log(e);
         });
     }
   };
@@ -109,7 +112,7 @@ export function LoginView(props) {
                   Log In
                 </Button>
                 <Link to={`/register`}>
-                  <Button variant="primary" type="submit">
+                  <Button variant="primary" type="button">
                     Register
                   </Button>
                 </Link>
@@ -124,5 +127,9 @@ export function LoginView(props) {
 }
 
 LoginView.propTypes = {
-  onLoggedIn: PropTypes.func.isRequired,
+  login: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    password: PropTypes.string.isRequired,
+    onLoggedIn: PropTypes.func.isRequired,
+  }),
 };

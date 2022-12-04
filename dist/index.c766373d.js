@@ -38487,12 +38487,13 @@ var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
+    // Getting Data
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
-    // Declare hook for each input
+    // Throw Error if something is wrong
     const [usernameErr, setUsernameErr] = (0, _react.useState)("");
     const [passwordErr, setPasswordErr] = (0, _react.useState)("");
-    // validate user inputs
+    // Validating Data
     const validate = ()=>{
         let isReq = true;
         if (!username) {
@@ -38511,6 +38512,7 @@ function LoginView(props) {
         }
         return isReq;
     };
+    // Submit Data
     const handleSubmit = (e)=>{
         e.preventDefault();
         const isReq = validate();
@@ -38522,7 +38524,7 @@ function LoginView(props) {
             const data = response.data;
             props.onLoggedIn(data);
         }).catch((e)=>{
-            console.log("This User Do Not Exist");
+            console.log(e);
         });
     };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
@@ -38534,7 +38536,7 @@ function LoginView(props) {
                     md: "auto"
                 }, void 0, false, {
                     fileName: "src/js/components/User/login-view.jsx",
-                    lineNumber: 69,
+                    lineNumber: 72,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -38546,7 +38548,7 @@ function LoginView(props) {
                                     children: "Log In"
                                 }, void 0, false, {
                                     fileName: "src/js/components/User/login-view.jsx",
-                                    lineNumber: 73,
+                                    lineNumber: 76,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
@@ -38559,7 +38561,7 @@ function LoginView(props) {
                                                     children: "Username"
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/login-view.jsx",
-                                                    lineNumber: 76,
+                                                    lineNumber: 79,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -38570,7 +38572,7 @@ function LoginView(props) {
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/login-view.jsx",
-                                                    lineNumber: 77,
+                                                    lineNumber: 80,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control.Feedback, {
@@ -38578,13 +38580,13 @@ function LoginView(props) {
                                                     children: usernameErr
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/login-view.jsx",
-                                                    lineNumber: 84,
+                                                    lineNumber: 87,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/js/components/User/login-view.jsx",
-                                            lineNumber: 75,
+                                            lineNumber: 78,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -38595,7 +38597,7 @@ function LoginView(props) {
                                                     children: "Password"
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/login-view.jsx",
-                                                    lineNumber: 90,
+                                                    lineNumber: 93,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
@@ -38606,7 +38608,7 @@ function LoginView(props) {
                                                     required: true
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/login-view.jsx",
-                                                    lineNumber: 91,
+                                                    lineNumber: 94,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control.Feedback, {
@@ -38614,13 +38616,13 @@ function LoginView(props) {
                                                     children: passwordErr
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/login-view.jsx",
-                                                    lineNumber: 98,
+                                                    lineNumber: 101,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/js/components/User/login-view.jsx",
-                                            lineNumber: 89,
+                                            lineNumber: 92,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
@@ -38631,70 +38633,74 @@ function LoginView(props) {
                                             children: "Log In"
                                         }, void 0, false, {
                                             fileName: "src/js/components/User/login-view.jsx",
-                                            lineNumber: 103,
+                                            lineNumber: 106,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
                                             to: `/register`,
                                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                                 variant: "primary",
-                                                type: "submit",
+                                                type: "button",
                                                 children: "Register"
                                             }, void 0, false, {
                                                 fileName: "src/js/components/User/login-view.jsx",
-                                                lineNumber: 112,
+                                                lineNumber: 115,
                                                 columnNumber: 19
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "src/js/components/User/login-view.jsx",
-                                            lineNumber: 111,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/js/components/User/login-view.jsx",
-                                    lineNumber: 74,
+                                    lineNumber: 77,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/js/components/User/login-view.jsx",
-                            lineNumber: 72,
+                            lineNumber: 75,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "src/js/components/User/login-view.jsx",
-                        lineNumber: 71,
+                        lineNumber: 74,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/js/components/User/login-view.jsx",
-                    lineNumber: 70,
+                    lineNumber: 73,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                     md: "auto"
                 }, void 0, false, {
                     fileName: "src/js/components/User/login-view.jsx",
-                    lineNumber: 120,
+                    lineNumber: 123,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/js/components/User/login-view.jsx",
-            lineNumber: 68,
+            lineNumber: 71,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/js/components/User/login-view.jsx",
-        lineNumber: 67,
+        lineNumber: 70,
         columnNumber: 5
     }, this);
 }
 _s(LoginView, "8pGqNa6D1L55vC7VE2hBm7jlBGo=");
 _c = LoginView;
 LoginView.propTypes = {
-    onLoggedIn: (0, _propTypesDefault.default).func.isRequired
+    login: (0, _propTypesDefault.default).shape({
+        username: (0, _propTypesDefault.default).string.isRequired,
+        password: (0, _propTypesDefault.default).string.isRequired,
+        onLoggedIn: (0, _propTypesDefault.default).func.isRequired
+    })
 };
 var _c;
 $RefreshReg$(_c, "LoginView");
@@ -40930,38 +40936,78 @@ var prevRefreshSig = window.$RefreshSig$;
 $parcel$ReactRefreshHelpers$661f.prelude(module);
 
 try {
+// React import
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "RegisterView", ()=>RegisterView);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+// Links
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
+// Props Checking
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+// Bootstrap Component
 var _reactBootstrap = require("react-bootstrap");
 var _s = $RefreshSig$();
 function RegisterView(props) {
     _s();
+    // Getting Data
     const [username, setUsername] = (0, _react.useState)("");
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
     const [birthday, setBirthday] = (0, _react.useState)("");
+    // Throw Error if something is wrong
+    const [usernameErr, setUsernameErr] = (0, _react.useState)("");
+    const [passwordErr, setPasswordErr] = (0, _react.useState)("");
+    const [emailErr, setEmailErr] = (0, _react.useState)("");
+    // Validating Data
+    const validate = ()=>{
+        let isReq = true;
+        if (!username) {
+            setUsernameErr("Username Required");
+            isReq = false;
+        } else if (username.length < 2) {
+            setUsernameErr("Username must be at least 2 characters");
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordErr("Password Required");
+            isReq = false;
+        } else if (password.length < 6) {
+            setPasswordErr("Password must be at least 6 characters");
+            isReq = false;
+        }
+        if (!email) {
+            setEmailErr("E-mail Required.");
+            isReq = false;
+        } else if (email.indexOf("@") === -1) {
+            setEmailErr("Enter valid E-mail address.");
+            isReq = false;
+        }
+        return isReq;
+    };
+    // Submit Data
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password, email, birthday);
+        const isReq = validate();
+        if (isReq) (0, _axiosDefault.default).post("https://sleepy-brook-50846.herokuapp.com/users", {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
+        }).then((response)=>{
+            const data = response.data;
+            console.log(data);
+            window.open("/", "_self");
+        // the second argument '_self' is necessary so that the page will open in the current tab
+        }).catch((e)=>{
+            console.log(e);
+        });
     };
-    axios.post("https://sleepy-brook-50846.herokuapp.com/users", {
-        Username: username,
-        Password: password,
-        Email: email,
-        Birthday: birthday
-    }).then((response)=>{
-        const data = response.data;
-        console.log(data);
-        window.open("/", "_self"); // the second argument '_self' is necessary so that the page will open in the current tab
-    }).catch((e)=>{
-        console.log("error registering the user");
-    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         className: "p-5",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -40971,7 +41017,7 @@ function RegisterView(props) {
                     md: "auto"
                 }, void 0, false, {
                     fileName: "src/js/components/User/registration-view.jsx",
-                    lineNumber: 35,
+                    lineNumber: 86,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
@@ -40983,7 +41029,7 @@ function RegisterView(props) {
                                     children: "Register"
                                 }, void 0, false, {
                                     fileName: "src/js/components/User/registration-view.jsx",
-                                    lineNumber: 39,
+                                    lineNumber: 90,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form), {
@@ -40996,22 +41042,24 @@ function RegisterView(props) {
                                                     children: "Username"
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 42,
+                                                    lineNumber: 93,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                                     type: "text",
+                                                    value: username,
                                                     placeholder: "Enter Username",
-                                                    onChange: (e)=>setUsername(e.target.value)
+                                                    onChange: (e)=>setUsername(e.target.value),
+                                                    required: true
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 43,
+                                                    lineNumber: 94,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/js/components/User/registration-view.jsx",
-                                            lineNumber: 41,
+                                            lineNumber: 92,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -41022,23 +41070,25 @@ function RegisterView(props) {
                                                     children: "Password"
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 51,
+                                                    lineNumber: 103,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                                     type: "password",
+                                                    value: password,
                                                     placeholder: "Enter Password",
-                                                    minLength: 8,
-                                                    onChange: (e)=>setPassword(e.target.value)
+                                                    minLength: 6,
+                                                    onChange: (e)=>setPassword(e.target.value),
+                                                    required: true
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 52,
+                                                    lineNumber: 104,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/js/components/User/registration-view.jsx",
-                                            lineNumber: 50,
+                                            lineNumber: 102,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -41049,21 +41099,24 @@ function RegisterView(props) {
                                                     children: "Email"
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 61,
+                                                    lineNumber: 115,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                                     type: "email",
-                                                    onChange: (e)=>setEmail(e.target.value)
+                                                    value: email,
+                                                    onChange: (e)=>setEmail(e.target.value),
+                                                    placeholder: "Your E-Mail Address",
+                                                    required: true
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 62,
+                                                    lineNumber: 116,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/js/components/User/registration-view.jsx",
-                                            lineNumber: 60,
+                                            lineNumber: 114,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Group, {
@@ -41074,82 +41127,101 @@ function RegisterView(props) {
                                                     children: "Birthday"
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 69,
+                                                    lineNumber: 126,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
                                                     type: "date",
+                                                    value: birthday,
+                                                    placeholder: "Your Birth Day",
                                                     onChange: (e)=>setBirthday(e.target.value)
                                                 }, void 0, false, {
                                                     fileName: "src/js/components/User/registration-view.jsx",
-                                                    lineNumber: 70,
+                                                    lineNumber: 127,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "src/js/components/User/registration-view.jsx",
-                                            lineNumber: 68,
+                                            lineNumber: 125,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                            className: "mr-3",
                                             variant: "primary",
                                             type: "submit",
                                             onClick: handleSubmit,
                                             children: "Submit"
                                         }, void 0, false, {
                                             fileName: "src/js/components/User/registration-view.jsx",
-                                            lineNumber: 76,
+                                            lineNumber: 135,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                                            to: `/`,
+                                            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
+                                                variant: "primary",
+                                                type: "button",
+                                                children: "LogIn"
+                                            }, void 0, false, {
+                                                fileName: "src/js/components/User/registration-view.jsx",
+                                                lineNumber: 139,
+                                                columnNumber: 19
+                                            }, this)
+                                        }, void 0, false, {
+                                            fileName: "src/js/components/User/registration-view.jsx",
+                                            lineNumber: 138,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/js/components/User/registration-view.jsx",
-                                    lineNumber: 40,
+                                    lineNumber: 91,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/js/components/User/registration-view.jsx",
-                            lineNumber: 38,
+                            lineNumber: 89,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "src/js/components/User/registration-view.jsx",
-                        lineNumber: 37,
+                        lineNumber: 88,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "src/js/components/User/registration-view.jsx",
-                    lineNumber: 36,
+                    lineNumber: 87,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Col), {
                     md: "auto"
                 }, void 0, false, {
                     fileName: "src/js/components/User/registration-view.jsx",
-                    lineNumber: 83,
+                    lineNumber: 147,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/js/components/User/registration-view.jsx",
-            lineNumber: 34,
+            lineNumber: 85,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/js/components/User/registration-view.jsx",
-        lineNumber: 33,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }
-_s(RegisterView, "jsOQN3GC2XlBG9ITlzCdpyJOnso=");
+_s(RegisterView, "LZ49BqzCbemEJLoRGZLE6mSS2b8=");
 _c = RegisterView;
 RegisterView.propTypes = {
     register: (0, _propTypesDefault.default).shape({
         username: (0, _propTypesDefault.default).string.isRequired,
         password: (0, _propTypesDefault.default).string.isRequired,
         email: (0, _propTypesDefault.default).string.isRequired,
-        Birthday: (0, _propTypesDefault.default).string
+        birthday: (0, _propTypesDefault.default).number
     })
 };
 var _c;
@@ -41160,7 +41232,7 @@ $RefreshReg$(_c, "RegisterView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2"}],"9IWfv":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2","axios":"jo6P5","react-router-dom":"cHIiW"}],"9IWfv":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$9499 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
