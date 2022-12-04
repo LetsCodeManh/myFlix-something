@@ -1,25 +1,26 @@
+// Import for React
 import React from "react";
 import ReactDOM from "react-dom";
+
+// Import View
 import { MainView } from "./components/MainView/main-view";
 
-// Import statement to indicate that you need to bundle
-import { Container } from "react-bootstrap";
-import { createStore } from "react-redux"
+// Import Redux Component
+import { legacy_createStore as createStore } from "redux";
 import { Provider } from "react-redux";
-import moviesApp from "./Redux/reducers"
+import { composeWithDevTools } from "redux-devtools-extension";
 
-import { devToolsEnhancer} from "redux-devtools-extension"
+// Import Reducers for Redux
+import moviesApp from "./Redux/reducers";
 
-
-const store = createStore(moviesApp, devToolsEnhancer())
+// Create a new Store for the app
+const store = createStore(moviesApp, composeWithDevTools());
 
 class MyFlixApplication extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <Container>
-          <MainView />
-        </Container>
+        <MainView />
       </Provider>
     );
   }

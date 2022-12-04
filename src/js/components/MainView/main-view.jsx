@@ -15,6 +15,8 @@ import { Col, Container, Row } from "react-bootstrap";
 
 import { Route, BrowserRouter as Router } from "react-router-dom";
 
+import { connect } from "react-redux";
+
 export class MainView extends React.Component {
   constructor() {
     super();

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Container, Nav, Navbar } from "react-bootstrap";
+import { Container, Nav, Navbar } from "react-bootstrap";
 
 export function Navbar({ user }) {
   const onLoggedOut = () => {
@@ -20,16 +20,21 @@ export function Navbar({ user }) {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar expand="lg" bg="dark" variant="dark" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">myFlix</Navbar.Brand>
-        <Navbar.Toggle id="responsive-navbar-nav" />
-        <Nav className="me-auto">
-          {isAuth() && <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>}
-          {isAuth() && <Button onClick={onLoggedOut}>Logout</Button>}
-          {!isAuth() && <Nav.Link href={`/`}>Sign-in</Nav.Link>}
-          {!isAuth() && <Nav.Link href={`/register`}>Sign-up</Nav.Link>}
-        </Nav>
+        <Navbar.Brand href="/">myFlix</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav>
+            <Nav.Link href="/">Home</Nav.Link>
+            {isAuth() && <Nav.Link href={"/users/${user}"}>{user}</Nav.Link>}
+            {isAuth() && (
+              <Nav.Link onClick={() => onLoggedOut()}>Logout</Nav.Link>
+            )}
+            {!isAuth() && <Nav.Link href={"/"}>Sign-In</Nav.Link>}
+            {!isAuth() && <Nav.Link href={"/register"}>Sign-Up</Nav.Link>}
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );
