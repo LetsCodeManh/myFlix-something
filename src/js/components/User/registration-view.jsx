@@ -156,5 +156,5 @@ RegisterView.propTypes = {
     password: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     birthday: PropTypes.number,
-  }),
+  }).isRequired,
 };

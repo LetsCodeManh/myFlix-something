@@ -5,6 +5,7 @@ import { useState } from "react";
 // Links
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
 // Props Checking
 import PropTypes from "prop-types";
@@ -130,6 +131,14 @@ LoginView.propTypes = {
   login: PropTypes.shape({
     username: PropTypes.string.isRequired,
     password: PropTypes.string.isRequired,
-    onLoggedIn: PropTypes.func.isRequired,
-  }),
+  }).isRequired,
+  onLoggedIn: PropTypes.func.isRequired,
 };
+
+const mapDispatchToProps = (dispatch) => ({
+  handleSubmit: (e) => {
+    dispatch(mapDispatchToProps(e));
+  },
+});
+
+export default connect(null, mapDispatchToProps)(LoginView);
