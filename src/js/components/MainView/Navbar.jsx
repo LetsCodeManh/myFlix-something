@@ -1,4 +1,7 @@
+// React import
 import React from "react";
+
+// Bootstrap Component
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 export function Navbar({ user }) {
