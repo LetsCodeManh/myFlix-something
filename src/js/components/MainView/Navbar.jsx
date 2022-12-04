@@ -2,11 +2,13 @@ import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 export function Navbar({ user }) {
+  // For Logout Button
   const onLoggedOut = () => {
     localStorage.clear();
     window.open("/", "_self");
   };
 
+  // Checking if user is logged In
   const isAuth = () => {
     if (typeof window == "undefined") {
       return false;

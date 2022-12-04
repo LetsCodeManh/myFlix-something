@@ -1,5 +1,15 @@
-import React, { useState } from "react";
+// React import
+import React from "react";
+import { useState } from "react";
+
+// Links
 import axios from "axios";
+import { Link } from "react-router-dom";
+
+// Props Checking
+import PropTypes from "prop-types";
+
+// Bootstrap Component
 import { Card, Form, Container, Button, Row, Col } from "react-bootstrap";
 
 export function LoginView(props) {
@@ -35,8 +45,6 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
-
-    console.log(username, password);
     // Send a request to the server for authentication
 
     if (isReq) {
@@ -71,6 +79,7 @@ export function LoginView(props) {
                     placeholder="Enter Username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    required
                   />
                   <Form.Control.Feedback type="invalid">
                     {usernameErr}
@@ -84,6 +93,7 @@ export function LoginView(props) {
                     placeholder="Enter Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    required
                   />
                   <Form.Control.Feedback type="invalid">
                     {passwordErr}
@@ -96,11 +106,13 @@ export function LoginView(props) {
                   type="submit"
                   onClick={handleSubmit}
                 >
-                  Submit
+                  Log In
                 </Button>
-                <Button variant="primary" type="submit">
-                  Register
-                </Button>
+                <Link to={`/register`}>
+                  <Button variant="primary" type="submit">
+                    Register
+                  </Button>
+                </Link>
               </Form>
             </Card.Body>
           </Card>
@@ -110,3 +122,7 @@ export function LoginView(props) {
     </Container>
   );
 }
+
+LoginView.propTypes = {
+  onLoggedIn: PropTypes.func.isRequired,
+};
